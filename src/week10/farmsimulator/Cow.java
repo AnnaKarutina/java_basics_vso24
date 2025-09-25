@@ -1,0 +1,58 @@
+package week10.farmsimulator;
+
+import java.util.Random;
+
+public class Cow implements Milkable, Alive {
+
+    private String name;
+    private static final String[] NAMES = new String[]{
+            "Anu", "Arpa", "Essi", "Heluna", "Hely",
+            "Hento", "Hilke", "Hilsu", "Hymy", "Ihq", "Ilme", "Ilo",
+            "Jaana", "Jami", "Jatta", "Laku", "Liekki",
+            "Mainikki", "Mella", "Mimmi", "Naatti",
+            "Nina", "Nyytti", "Papu", "Pullukka", "Pulu",
+            "Rima", "Soma", "Sylkki", "Valpu", "Virpi"};
+    private double capacity = 15 + new Random().nextInt(26);
+    private double amount;
+
+    public Cow(String name){
+        this.name = name;
+    }
+
+    public Cow(){
+        this(NAMES[new Random().nextInt(NAMES.length)]);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public double getCapacity() {
+        return this.capacity;
+    }
+
+    public double getAmount() {
+        return this.amount;
+    }
+
+    @Override
+    public String toString(){
+        return this.name + " " + Math.ceil(this.amount) + "/" + Math.ceil(this.capacity);
+    }
+
+    @Override
+    public void liveHour() {
+        double randomMilk = 0.7 + (2.0 - 0.7) * new Random().nextDouble();
+        if(this.amount + randomMilk > this.capacity){
+            this.amount = this.capacity;
+        }
+        this.amount += randomMilk;
+    }
+
+    @Override
+    public double milk() {
+        double cowsMilk = this.amount;
+        this.amount = 0;
+        return cowsMilk;
+    }
+}
