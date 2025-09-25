@@ -29,6 +29,7 @@ public class BulkTank {
             this.volume = this.capacity;
         } else {
             this.volume += amount;
+            this.volume = Math.ceil(this.volume);
         }
     }
 
@@ -45,6 +46,6 @@ public class BulkTank {
 
     @Override
     public String toString() {
-        return this.volume + "/" + this.capacity;
+        return Math.ceil(this.volume) + "/" + this.capacity;
     }
 }
