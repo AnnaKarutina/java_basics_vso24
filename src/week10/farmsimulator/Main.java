@@ -1,5 +1,7 @@
 package week10.farmsimulator;
 
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         /*BulkTank tank = new BulkTank();
@@ -38,7 +40,7 @@ public class Main {
         cow.milk();
         System.out.println(cow);*/
 
-        MilkingRobot milkingRobot = new MilkingRobot();
+        /*MilkingRobot milkingRobot = new MilkingRobot();
         Cow cow = new Cow();
         System.out.println("");
 
@@ -58,6 +60,73 @@ public class Main {
             milkingRobot.milk(cow);
             System.out.println("Bulk tank: " + tank);
             System.out.println("");
+        }*/
+
+       /* Barn barn = new Barn(new BulkTank());
+        System.out.println("Barn: " + barn);
+
+        MilkingRobot robot = new MilkingRobot();
+        barn.installMilkingRobot(robot);
+
+        Cow ammu = new Cow();
+        ammu.liveHour();
+        ammu.liveHour();
+
+        barn.takeCareOf(ammu);
+        System.out.println("Barn: " + barn);
+
+        LinkedList<Cow> cowList = new LinkedList<Cow>();
+        cowList.add(ammu);
+        cowList.add(new Cow());
+
+        for(Cow cow: cowList) {
+            cow.liveHour();
+            cow.liveHour();
         }
+
+        barn.takeCareOf(cowList);
+        System.out.println("Barn: " + barn);*/
+
+        /*Farm farm = new Farm("Esko", new Barn(new BulkTank()));
+        System.out.println(farm);
+
+        System.out.println(farm.getOwner() + " is a tough guy!");*/
+
+        /*Farm farm = new Farm("Esko", new Barn(new BulkTank()));
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+        System.out.println(farm);*/
+
+        /*Farm farm = new Farm("Esko", new Barn(new BulkTank()));
+
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+
+        farm.liveHour();
+        farm.liveHour();
+        System.out.println(farm);*/
+
+        Farm farm = new Farm("Esko", new Barn(new BulkTank()));
+        MilkingRobot robot = new MilkingRobot();
+        farm.installMilkingRobot(robot);
+
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+        farm.addCow(new Cow());
+
+        System.out.println(farm);
+        System.out.println();
+
+        farm.liveHour();
+        farm.liveHour();
+
+        System.out.println(farm);
+        System.out.println();
+
+        farm.manageCows();
+
+        System.out.println(farm);
     }
 }
